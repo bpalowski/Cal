@@ -32,3 +32,26 @@ function calculateResults(e) {
 
   e.preventDefault();
 }
+// Show Error Function
+function showError(error) {
+  const errorDiv = document.createElement("div");
+
+  // get elements
+  const card = document.querySelector(".card");
+  const heading = document.querySelector(".heading");
+
+  // Add class bootstrap alert
+  errorDiv.className = "alert alert-danger";
+  //Create text node append to div
+  errorDiv.appendChild(document.createTextNode(error));
+
+  // Insert error above heading start with parent Card the grab the element errorDiv and insert into the before with heading.
+  card.insertBefore(errorDiv, heading);
+
+  // Clear error after 3sec
+  setTimeout(clearError, 2000);
+}
+
+function clearError() {
+  document.querySelector(".alert").remove();
+}
